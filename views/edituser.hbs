@@ -1,0 +1,20 @@
+
+{{#if alert}}
+<div  class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+    {{alert}}
+  <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#each rows}}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+    <li class="breadcrumb-item active" aria-current="page">User Name: {{this.first_name}}</li>
+  </ol>
+</nav>
+<form class="row g-3 needs-validation" method="POST" action="/edituser/{{this.id}}" novalidate>
+{{> userform}}
+</form>
+{{/each}}
