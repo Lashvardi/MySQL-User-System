@@ -12,7 +12,9 @@ const mysql = require("mysql");
 // ? Return ALL users
 exports.view = (req,res) =>{
     pool.getConnection((err,connection) =>{
-        if(err) throw err;
+        if(err){
+            throw err;
+        } 
         console.log("Connected As ID" + connection.threadId)
         //User The Connection
         connection.query(`SELECT * FROM user where status = "active"`,(err,rows) =>{
